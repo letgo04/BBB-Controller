@@ -1,0 +1,42 @@
+<div data-bind="visible: !loginState.isUser()">
+    <h4>Logging to Gain Access</h4>
+</div>
+
+<div data-bind="visible: loginState.isUser()">
+    <h3>BBB Control Monitor</h3>
+    <div class="accordion-inner">
+    <div data-bind="visible: loginState.isUser()">
+        <h4>Fan Control</h4>
+        <div>
+            <table data-bind="foreach: fan_definitions">
+                <tr>
+                    <td>
+                        <td style="width:20px;" class="atxCell><span id="Fan_name" data-bind="text: fan_name"></span></td>
+                        <td style="width:20px;" class="atxCell><span id="Fan_pin" data-bind="text: fan_pin"></span></td>
+                        <td style="width:20px;" class="atxCell atxCellSlider">
+                        <input style="width:80px;" type="number" data-slider-id='PWMSlider' data-bind="slider: {min: 0, max: 100, step: 1, value: PWM, tooltip: 'show', tooltip_position: 'top', enabled: manual_fan() && fan_pin() !='None'}"></td>
+                        <td style="width:40px; height:60px;" class="atxCell><span id="PWM_duty" data-bind=" text: PWM"></span></td>
+                    </td>
+                    <td>
+                        <td style="width:20px;" class="atxCell><span id="temp_type" data-bind="visible: has_temp(), text: temp_type"></span></td>
+                        <td style="width:60px;" class="atxCell><span id="temp_pin" data-bind="visible: has_temp(), text: temp_pin"></span></td>
+                        <td style="width:20px;" class="atxCell><span id="temp_val" data-bind="visible: has_temp(), text: temp_text"></span></td>
+
+                    </td>
+                </tr>   
+            </table>
+
+            
+            <table>
+                <tr>
+                <td class="atxCell">
+                    <button class="btn btn-block atxButton" data-bind="click: SetPWMs ">Set</button>
+                </td>
+                </tr>
+            </table>
+
+     
+        </div>
+    </div>
+
+</div>

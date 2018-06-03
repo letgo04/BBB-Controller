@@ -1,0 +1,3 @@
+[octoprint.plugin]
+BBBC = octoprint_BBBC
+

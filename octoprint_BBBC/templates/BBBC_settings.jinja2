@@ -1,0 +1,117 @@
+<h3>Beagle Bone Black Controller</h3>
+<p>OctoPrint will, by default, respond to three action commands: <code>action:disconnect</code> (disconnects the printer), <code>action:pause</code> 
+(pauses streaming the print job), and <code>action:resume</code> (resumes streaming the print job).</p>
+<p>under minimum temp fan will stop. over maximum temp fan will turn full. between these temp pwm will affect ( duty = temp * c_factor)</p>
+<p>P8_19 and P8_45, P8_13 and P8_46, P9_21 and P9_29, P9_22 and P9_31 are conflict</p>
+
+        <div class="control-group">
+            <label class="control-label">Screen Update Time (sec)</label>
+            <div class="controls">
+                <input type="number" min="0.5" max="5" class="input-mini" data-bind="value: global_settings.settings.plugins.BBBC.ProcessTimer"></input>&nbsp;sec(Default 2)
+            </div>
+        </div>
+
+<h4>Fan Global Setting</h4>
+<form class="form-horizontal">
+    <div class="row-fluid">
+        <div class="span2"><h5>Default Duty</h5></div>
+        <div class="span3"><h5>Temp Range</h5></div>
+        <div class="span2"><h5>C factor</h5></div>
+        <div class="span2"><h5>PWM Control Time (sec)</h5></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span2 input-prepend control-group" title="The default duty of Fan">
+                <input type="text" class="span8 input-mini text-left" data-bind="value: global_settings.settings.plugins.BBBC.DefaultDuty">
+        </div>
+        <div class="span1 input-prepend control-group" title="minimum temp for auto control">
+                <input type="text" class="span10 input-mini text-left" data-bind="value: global_settings.settings.plugins.BBBC.MinTemp">
+        </div>
+        <div class="span1 input-prepend control-group" title="maximum temp for auto control">
+                <input type="text" class="span10 input-mini text-left" data-bind="value: global_settings.settings.plugins.BBBC.MaxTemp">
+        </div>
+        <div class="span2 input-prepend control-group" title="C_factor">
+                <input type="text" class="span10 input-mini text-left" data-bind="value: global_settings.settings.plugins.BBBC.C_factor">
+        </div>
+        <div class="span2 input-prepend control-group" title="Period of PWM Control">
+                <input type="text" class="span10 input-mini text-left" data-bind="value: global_settings.settings.plugins.BBBC.PPC">
+        </div>
+
+    </div>	
+
+</form>
+<h4>Fan & Temp Sensor Setting</h4>
+<form class="form-horizontal">
+    <div class="row-fluid">
+        <div class="span2"><h5>Fan name</h5></div>
+        <div class="span2"><h5>Fan Pin</h5></div>
+        <div class="span1"><h5>Manual Mode</h5></div>
+        <div class="span1"><h5>Sensor</h5></div>
+        <div class="span2"><h5>Sensor type</h5></div>
+		<div class="span2"><h5>Sensor Pin</h5></div>
+    </div>
+    
+    <div data-bind="foreach: fan_definitions">
+    
+        <div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span2 input-prepend control-group" title="The name of Fan">
+                <input type="text" class="span10 input-mini text-left" data-bind="value: fan_name">
+            </div>
+            <div class="span2 control-group" title="Select PWM PIN">
+                <select class="span10" data-bind="value: fan_pin">
+					<option value="None">No fan</option>
+				    	<option value="P9_14">P9_14</option>
+                    			<option value="P9_16">P9_16</option>
+					<option value="P9_21">P9_21</option>
+					<option value="P9_22">P9_22</option>
+					<option value="P9_28">P9_28</option>
+					<option value="P9_29">P9_29</option>
+					<option value="P9_31">P9_31</option>
+					<option value="P9_42">P9_42</option>
+					<option value="P8_13">P8_13</option>
+					<option value="P8_19">P8_19</option>
+					<option value="P8_34">P8_34</option>
+					<option value="P8_36">P8_36</option>
+					<option value="P8_45">P8_45</option>
+                    			<option value="P8_46">P8_46</option>
+                </select>
+            </div>
+			
+            <div class="span1 control-group" title="check control fan manually">
+                <input type="checkbox" data-bind="checked: manual_fan">
+            </div>
+            
+			<div class="span1 control-group" title="Enable or disable temp sensor">
+                <input type="checkbox" data-bind="checked: has_temp">
+            </div>
+			
+            <div class="span2 control-group" title="Select sensor type.">
+                <select class="offset1 span8" data-bind="value: temp_type">
+                    <option value="1">100k</option>
+					<option value="4">10k</option>
+                </select>
+            </div>
+			
+			<div class="span2 control-group" title="Select sensor pin.">
+                <select class="span10" data-bind="value: temp_pin">
+                    <option value="P9_39">P9_39</option>
+					<option value="P9_40">P9_40</option>
+					<option value="P9_37">P9_37</option>
+					<option value="P9_38">P9_38</option>
+					<option value="P9_33">P9_33</option>
+					<option value="P9_36">P9_36</option>
+					<option value="P9_35">P9_35</option>
+                </select>
+            </div>
+
+            <div class="span1">
+                <a title="Remove Fan" class="btn btn-danger" data-bind="click: $parent.removeCommandDefinition"><i class="icon-trash"></i></a>
+            </div>
+			
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="offset11 span1">
+            <a title="Add Fan" class="btn btn-primary" data-bind="click: addCommandDefinition"><i class="icon-plus"></i></a>
+        </div>
+    </div>
+</form>

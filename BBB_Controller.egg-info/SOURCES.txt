@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+BBB_Controller.egg-info/PKG-INFO
+BBB_Controller.egg-info/SOURCES.txt
+BBB_Controller.egg-info/dependency_links.txt
+BBB_Controller.egg-info/entry_points.txt
+BBB_Controller.egg-info/not-zip-safe
+BBB_Controller.egg-info/requires.txt
+BBB_Controller.egg-info/top_level.txt
+octoprint_BBBC/__init__.py
+octoprint_BBBC/static/css/BBBC.css
+octoprint_BBBC/static/js/BBBC.js
+octoprint_BBBC/static/less/BBBC.less
+octoprint_BBBC/templates/BBBC_settings.jinja2
+octoprint_BBBC/templates/BBBC_tab.jinja2
+octoprint_BBBC/templates/README.txt
