@@ -83,7 +83,7 @@ $(function() {
         };     
         
         self.addCommandDefinition = function() {
-            self.fan_definitions.push({fan_name:'', fan_pin:'', manual_fan: false, has_temp:true , temp_type:'', temp_pin:'', PWM:60, temp_text:0});
+            self.fan_definitions.push(new Datum({fan_name:'', fan_pin:'', manual_fan: false, has_temp:true , temp_type:'', temp_pin:'', PWM:60, temp_text:0}));
         };
 
         self.removeCommandDefinition = function(definition) {
