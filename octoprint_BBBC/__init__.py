@@ -142,8 +142,9 @@ class BBBC(octoprint.plugin.SettingsPlugin,
 
     def get_assets(self):
         return dict(
-            js=["js/BBBC.js"],
-            css=["css/BBBC.css"]
+            js=["js/BBBC.js", "js/filemanager.js"],
+            css=["css/BBBC.css", "css/fileManager-generated.min.css"],
+            less=["less/fileManager.less"]
         )      
 
     def _mylogger(self,message, forceinfo=False):			# this is to be able to change the logging without a large change
