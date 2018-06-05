@@ -142,7 +142,7 @@ class BBBC(octoprint.plugin.SettingsPlugin,
 
     def get_assets(self):
         return dict(
-            js=["js/BBBC.js", "js/filemanager.js"],
+            js=["js/BBBC.js", "js/filemanager.js", "js/ko.single_double_click.js"],
             css=["css/BBBC.css", "css/fileManager-generated.min.css"],
             less=["less/fileManager.less"]
         )      
