@@ -136,7 +136,7 @@ class BBBC(octoprint.plugin.SettingsPlugin,
     def get_template_configs(self):
         return [
             dict(type="settings", custom_bindings=True),
-            dict(type='tab', custom_bindings=True, template='BBBC_tab.jinja2', name='BBB Fan&Temp')
+            dict(type='tab', custom_bindings=True, template='BBBC_tab.jinja2', name='BBB Fan&Temp'),
             dict(type='tab', custom_bindings=True, template='filemanager_tab.jinja2', name='BBB SDCard', div='tab_plugin_filemanager')
         ]
 
